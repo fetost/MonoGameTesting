@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+
+# MonoGame content pipeline
+Content/obj/
+
+# Visual Studio / VS Code settings (optional)
+.vscode/
+*.user
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
