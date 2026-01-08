@@ -1,42 +1,31 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGameLibrary;
 
 namespace DungeonSlime;
 
-public class Game1 : Game
+public class Game1 : Core
 {
-    private GraphicsDeviceManager _graphics; // manages connection to the graphics hardware. 
-    private SpriteBatch _spriteBatch; // optimizes 2D rendering 
-
-    // The constructor will run first and will handle basic, general and more core system setup. 
-    public Game1()
+    public Game1() : base("Dungeon Slime", 1280, 720, false)
     {
-        _graphics = new GraphicsDeviceManager(this); // for interacting with GPU
-        Content.RootDirectory = "Content";
-        IsMouseVisible = true;
+
     }
 
-    // Place for additional config and initializations. More game-specific. 
-    // Initialize() is a virtual method that is overridden, and one should not call overridable mthods from within a constructor. 
     protected override void Initialize()
     {
         // TODO: Add your initialization logic here
 
-        base.Initialize(); // should never be removed. 
+        base.Initialize();
     }
 
-    // Load textures here, sound effects, music and game assets. 
-    // Initialize() calls LoadContent() last, so if any initializations have dependency on assets, it has to done AFTER base.Initialize. 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
-
         // TODO: use this.Content to load your game content here
+
+        base.LoadContent();
     }
 
-    // Update() and Draw() is called over and over again until the game is told to quit. The loop is ran 60 times per second. 
-    // Update() checks for controller or keyboard input to determine if the game should quit or not 
     protected override void Update(GameTime gameTime)
     {
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -49,8 +38,7 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.MonoGameOrange); // GraphicsDevice object is a direct interface between the game and what is rendered. 
-        // Clear has to be called, otherwise every draw call would draw the new frame render on top of the last render. 
+        GraphicsDevice.Clear(Color.CornflowerBlue);
 
         // TODO: Add your drawing code here
 
